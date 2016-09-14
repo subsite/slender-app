@@ -1,14 +1,14 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit} from '@angular/core';
 import {NaviService} from './navi.service';
 
 @Component({
     selector: 'ss-navi',
     template: `
-        <div *ngFor="#item of navi; #i = index" 
+        <div *ngFor="let item of navi; let i = index" 
             (click)="onNavi(0, i)" 
             [class.is-active]="i == curNaviIdx[0]">
             
-            <a href="{{linkRoot}}#/{{item.page}}/{{item.sub[0].page}}">{{item.name}}</a>
+            <a routerLink="/{{item.page}}/{{item.sub[0].page}}">{{item.name}}</a>
         </div>
     `
 })

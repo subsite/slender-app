@@ -1,8 +1,9 @@
-import {Injectable} from 'angular2/core';
-import {Http, Response} from 'angular2/http';
-import {Observable} from 'rxjs/Observable';
+import { Injectable } from '@angular/core';
+import { Http, Response, Headers, URLSearchParams, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import {NaviService} from '../navi/navi.service';
 import {CONF} from '../conf';
+
 declare var marked: any; // marked.js
 
 @Injectable()
@@ -21,10 +22,13 @@ export class LoaderService {
             
         }
 
-    getPageUrl() {
-       
-        this.parent = this.navi[this.naviService.curNaviIdx[0]];
-        this.child = this.parent.sub[this.naviService.curNaviIdx[1]];
+    getPageUrl(urlObj) {
+
+        this.parent.page = urlObj.page1;
+        this.child.page = urlObj.page2;
+
+        //this.parent = this.navi[this.naviService.curNaviIdx[0]];
+        //this.child = this.parent.sub[this.naviService.curNaviIdx[1]];
                
         var defaultUrl = '/' + CONF.siteroot + '/' + CONF.pageroot + '/' + this.parent.page + '/' + this.child.page + '.md'; 
         // remove possible extra slashes

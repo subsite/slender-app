@@ -1,15 +1,15 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {NaviService} from './navi.service';
 import {NaviComponent} from './navi.component';
 
 @Component({
     selector: 'ss-navi-sub',
     template: `
-        <div *ngFor="#item of navi[curNaviIdx[0]].sub; #i = index" 
+        <div *ngFor="let item of navi[curNaviIdx[0]].sub; let i = index" 
             (click)="onNavi(1, i)" 
             [class.is-active]="i == curNaviIdx[1]">
 
-            <a href="{{linkRoot}}#/{{navi[curNaviIdx[0]].page}}/{{item.page}}">{{item.name}}</a>
+            <a href="/{{navi[curNaviIdx[0]].page}}/{{item.page}}">{{item.name}}</a>
         </div>
     `
 

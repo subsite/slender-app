@@ -1,20 +1,22 @@
-import {Component, provide, OnInit} from 'angular2/core';
-import {
-    Router, 
-    RouteConfig, 
-    ROUTER_DIRECTIVES, 
-    ROUTER_PROVIDERS, 
-    APP_BASE_HREF,
-    LocationStrategy, 
-    HashLocationStrategy} from 'angular2/router';
-import {HTTP_PROVIDERS} from 'angular2/http';
-import {LoaderComponent} from './loader/loader.component';
-import {NaviService} from './navi/navi.service';
-import {NaviComponent} from './navi/navi.component';
-import {NaviSubComponent} from './navi/navi-sub.component';
-import {FooterComponent} from './footer/footer.component';
+import { Component } from '@angular/core';
 
 import {CONF} from './conf';
+
+
+import 'rxjs/Rx';
+
+@Component({
+    selector: 'ss-app',
+    templateUrl: './app/app.html',
+    providers: [  ]
+})
+
+export class AppComponent  { }
+
+
+/*
+
+import {NaviService} from './navi/navi.service';
 
 @Component({
     selector: 'ss-app',
@@ -35,11 +37,6 @@ import {CONF} from './conf';
     ]
 })
 
-@RouteConfig([
-    { path: '/', name: 'Loader', component: LoaderComponent },
-    { path: '/:page1', name: 'Loader', component: LoaderComponent },
-    { path: '/:page1/:page2', name: 'Loader', component: LoaderComponent }
-])
 
 export class AppComponent {
 
@@ -49,4 +46,4 @@ export class AppComponent {
         this.naviService.naviByUrl();
     }
   
-}
+}*/

@@ -1,5 +1,6 @@
-import {Injectable} from 'angular2/core';
-import {CONF} from '../conf';
+
+import { Injectable } from '@angular/core';
+import { CONF } from '../conf';
 
 @Injectable()
 export class NaviService {
@@ -24,7 +25,7 @@ export class NaviService {
     }
 
     onNavi(navLevel: number, navIdx: number) {
-        
+        console.log("onNavi "+this.curNaviIdx);
         if (navLevel == 0 && navIdx != this.curNaviIdx[0]) {
             // On parent change set sub index to 0
             this.curNaviIdx[1] = 0;
