@@ -24,11 +24,14 @@ export class LoaderService {
 
     getPageUrl(urlObj) {
 
-        this.parent.page = urlObj.page1;
-        this.child.page = urlObj.page2;
 
-        //this.parent = this.navi[this.naviService.curNaviIdx[0]];
-        //this.child = this.parent.sub[this.naviService.curNaviIdx[1]];
+        let naviIdx = (this.getNaviIdx(urlObj));
+        console.log(naviIdx);
+
+        this.parent = this.navi[naviIdx[0]];
+        this.child = this.parent.sub[naviIdx[1]];
+
+        
                
         var defaultUrl = '/' + CONF.siteroot + '/' + CONF.pageroot + '/' + this.parent.page + '/' + this.child.page + '.md'; 
         // remove possible extra slashes
@@ -39,12 +42,12 @@ export class LoaderService {
             ? this.child.custom_url 
             : defaultUrl
 
-            console.log("getPageUrl( parent / child: "+ this.parent.page + '/' + this.child.page +") naviService: "+ this.naviService.i);
+            console.log("getPageUrl( parent / child: "+ this.parent.page + '/' + this.child.page +") naviService: "); 
 
         // Get optional page header for overriden urls. Maybe move this to own method.
         if (this.child.custom_url && this.child.page_as_header) {
             this.getFile(defaultUrl)
-                .subscribe(data => this.pageHeader = this.markUp(data))
+                .subscribe(mdData => this.pageHeader = this.markUp(mdData))
         }
 
         return returnUrl;
@@ -52,6 +55,7 @@ export class LoaderService {
     
     // Get markdownfile with http request
     getFile(httpUrl:string) {
+        this.pageHeader = "";
         console.log("getFile("+httpUrl+")");
         return this.http.get(httpUrl)
             .map(res => this.pageHeader + res.text()) 
@@ -64,6 +68,30 @@ export class LoaderService {
         return (marked(md));
     }
     
+    // Find array indexes of current page by navi object key
+    private getNaviIdx(urlObj) {
+        let naviIdx: number[] = [0,0];
+        console.log("getNaviIdx: " + JSON.stringify(urlObj));
+        for (var i=0; i<this.navi.length; i++) {
+            if (this.navi[i].page == urlObj.page1) {
+                naviIdx[0] = i;
+                //break;
+            }
+        }
+        for (var i=0; i<this.navi[naviIdx[0]].sub.length; i++) {
+            if (this.navi[naviIdx[0]].sub[i].page == urlObj.page2) {
+                naviIdx[1] = i;
+                 console.log("getNaviIdx child: " + i);
+                //break;
+            }
+        }
+        console.log("getNaviIdx returns: " + JSON.stringify(naviIdx));
+        
+        this.naviService.setNaviIdx(naviIdx);
+
+        return naviIdx;
+    }
+
     private handleError(error: Response) {
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');

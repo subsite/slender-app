@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 import {CONF} from './conf';
 
 
@@ -8,10 +9,10 @@ import 'rxjs/Rx';
 @Component({
     selector: 'ss-app',
     templateUrl: './app/app.html',
-    providers: [  ]
+    providers: []
 })
 
-export class AppComponent  { }
+export class AppComponent { }
 
 
 /*
