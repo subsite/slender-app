@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, URLSearchParams, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import {NaviService} from '../navi/navi.service';
-import {CONF} from 'slender-site';
+
+import { CONF } from 'local/conf';
+
 
 declare var marked: any; // marked.js
 
@@ -33,7 +35,7 @@ export class LoaderService {
 
         
                
-        var defaultUrl = '/' + CONF.siteroot + '/' + CONF.pageroot + '/' + this.parent.page + '/' + this.child.page + '.md'; 
+        var defaultUrl = '/local/' + CONF.siteroot + '/' + CONF.pageroot + '/' + this.parent.page + '/' + this.child.page + '.md'; 
         // remove possible extra slashes
         defaultUrl = defaultUrl.replace(/(\/+)/g, '/');
         

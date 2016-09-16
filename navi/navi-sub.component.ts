@@ -4,12 +4,7 @@ import {NaviComponent} from './navi.component';
 
 @Component({
     selector: 'ss-navi-sub',
-    template: `
-        <div *ngFor="let item of getNavi(); let i = index">
-
-            <a routerLink="/{{navi[this.naviService.curNaviIdx[0]].page}}/{{item.page}}" routerLinkActive="is-active">{{item.name}}</a>
-        </div>{{foosub}}
-    `
+    templateUrl: '../../local/templates/navi-sub.template.html'
 
 })
 

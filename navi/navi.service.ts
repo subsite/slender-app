@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { CONF } from 'slender-site';
+import { CONF } from 'local/conf';
 
 //import {TEST} from  'test';
 

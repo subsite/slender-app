@@ -5,12 +5,7 @@ import {NaviService} from './navi.service';
 
 @Component({
     selector: 'ss-navi',
-    template: `
-        <div *ngFor="let item of getNavi(); let i = index">
-            
-            <a routerLink="/{{item.page}}/{{item.sub[0].page}}" routerLinkActive="is-active">{{item.name}}</a>
-        </div>
-    `
+    templateUrl: '../../local/templates/navi.template.html'
 })
 
 export class NaviComponent implements OnInit {

@@ -2,10 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import {LoaderService} from './loader.service';
-import {CONF} from 'slender-site';
+import { CONF } from 'local/conf';
 
 @Component({
-    templateUrl: './app/loader/loader.html',
+    template:`<div [innerHTML]="parsedMd"></div>`,
     selector: 'ss-loader',
     providers: [LoaderService]
 })
