@@ -9,6 +9,7 @@ import {Http} from '@angular/http';
 export class FooterComponent implements OnInit {
 
     private version: string;
+    private ngVersion: string;
 
     constructor(private http: Http) { }
 
@@ -17,7 +18,10 @@ export class FooterComponent implements OnInit {
 
         this.http.get('./package.json')
             .map(res => res.json())
-            .subscribe(data => this.version = data.version);
+            .subscribe(data => {
+                this.version = data.version;
+                this.ngVersion = data.dependencies['@angular/common'];
+            });
     }
 
 
