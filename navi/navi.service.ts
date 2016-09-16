@@ -1,6 +1,8 @@
 
 import { Injectable } from '@angular/core';
-import { CONF } from '../conf';
+import { CONF } from 'slender-site';
+
+//import {TEST} from  'test';
 
 @Injectable()
 export class NaviService {

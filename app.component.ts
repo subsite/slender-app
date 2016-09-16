@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 
-import {CONF} from './conf';
+import {CONF} from 'slender-site';
+
 
 
 import 'rxjs/Rx';

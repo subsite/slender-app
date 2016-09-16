@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import {LoaderService} from './loader.service';
-import {CONF} from '../conf';
+import {CONF} from 'slender-site';
 
 @Component({
     templateUrl: './app/loader/loader.html',
