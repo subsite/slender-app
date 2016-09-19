@@ -26,7 +26,14 @@ export class LoaderComponent implements OnInit {
     }
 
     ngOnInit() {
-       // console.log("loader init");
+       console.log("loader init");
+
+       if (CONF.gaTrackingId) {
+           ga('create', CONF.gaTrackingId, 'auto'); 
+            console.log("ga create:"+CONF.gaTrackingId);
+       }
+       
+
 
         this.route.params.subscribe(urlParams => {
             
@@ -36,12 +43,10 @@ export class LoaderComponent implements OnInit {
                 && CONF.gaDomains 
                 && CONF.gaDomains.indexOf(window.location.hostname) != -1) {
 
-                    foo();
-
-                    ga('create', CONF.gaTrackingId, 'auto'); 
-                    ga('set', 'page', location.href);
+                    
+                    ga('set', 'page', location.pathname);
                     ga('send', 'pageview');
-                    console.log("ga create:"+CONF.gaTrackingId+' send:'+location.pathname);
+                    console.log('ga send:'+location.pathname);
             }
             
 

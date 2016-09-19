@@ -39,7 +39,7 @@ import { FooterComponent } from './footer/footer.component';
         Title,
         NaviService,
         { provide: APP_BASE_HREF, useValue: '/' },
-       {provide: LocationStrategy, useClass: PathLocationStrategy}
+        {provide: LocationStrategy, useClass: PathLocationStrategy}
         
     ],
     bootstrap: [AppComponent]
