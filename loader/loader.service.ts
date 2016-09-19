@@ -34,7 +34,7 @@ export class LoaderService {
         this.child = this.parent.sub[naviIdx[1]];
                
         //var defaultUrl = window.location.pathname + '/local/content/pages/' + this.parent.page + '/' + this.child.page + '.md'; 
-        var defaultUrl = '/local/content/pages/' + this.parent.page + '/' + this.child.page + '.md'; 
+        var defaultUrl = 'local/content/pages/' + this.parent.page + '/' + this.child.page + '.md'; 
         //console.log(defaultUrl);
 
         // remove possible extra slashes
