@@ -1,5 +1,6 @@
 
 import { Injectable } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { CONF } from 'local/conf';
 
 //import {TEST} from  'test';
@@ -12,7 +13,7 @@ export class NaviService {
     curNaviIdx: number[] = [0, 0]; // = [parent-index, child-index] Default navi index first child of first parent
 
 
-    constructor() {
+    constructor(private titleService: Title) {
         this.navi = CONF.navi;
     }
 
@@ -31,5 +32,10 @@ export class NaviService {
 
     setNaviIdx(naviIdx: number[]) {
         this.curNaviIdx = naviIdx;
+
+        // Set pagetitle
+        this.titleService.setTitle(CONF.pageTitle + ' - ' + 
+            this.navi[this.curNaviIdx[0]]
+            .sub[this.curNaviIdx[1]].name);
     }
 }
