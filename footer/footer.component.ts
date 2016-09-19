@@ -3,7 +3,7 @@ import {Http} from '@angular/http';
 
 @Component({
     selector: 'ss-footer',
-    templateUrl: '../../local/templates/footer.template.html'
+    templateUrl: 'local/templates/footer.template.html'
 })
 
 export class FooterComponent implements OnInit {

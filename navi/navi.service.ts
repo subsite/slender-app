@@ -10,15 +10,10 @@ export class NaviService {
 
     navi: any[] = []; // Array with navigation structure
     curNaviIdx: number[] = [0, 0]; // = [parent-index, child-index] Default navi index first child of first parent
-    linkRoot: string;
 
 
     constructor() {
         this.navi = CONF.navi;
-        this.linkRoot = (CONF.siteroot + '/').replace(/(\/+)/g, '/');
-
-        console.log("linkRoot: "+this.linkRoot);
-
     }
 
     // Assign navi index when accessing path directly or on page reload

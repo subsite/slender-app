@@ -8,7 +8,7 @@ import 'rxjs/Rx';
 
 @Component({
     selector: 'ss-app',
-    templateUrl: '../../local/templates/app.template.html'
+    templateUrl: 'local/templates/app.template.html'
 })
 
 export class AppComponent { }

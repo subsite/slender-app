@@ -5,7 +5,7 @@ import {NaviService} from './navi.service';
 
 @Component({
     selector: 'ss-navi',
-    templateUrl: '../../local/templates/navi.template.html'
+    templateUrl: 'local/templates/navi.template.html'
 })
 
 export class NaviComponent implements OnInit {

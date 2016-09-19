@@ -28,14 +28,14 @@ export class LoaderService {
 
 
         let naviIdx = (this.getNaviIdx(urlObj));
-        console.log(naviIdx);
+        //console.log(naviIdx);
 
         this.parent = this.navi[naviIdx[0]];
         this.child = this.parent.sub[naviIdx[1]];
 
-        
+        console.log(window.location.pathname);
                
-        var defaultUrl = '/local/' + CONF.siteroot + '/' + CONF.pageroot + '/' + this.parent.page + '/' + this.child.page + '.md'; 
+        var defaultUrl = window.location.pathname + '/local/content/pages/' + this.parent.page + '/' + this.child.page + '.md'; 
         // remove possible extra slashes
         defaultUrl = defaultUrl.replace(/(\/+)/g, '/');
         

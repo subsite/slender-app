@@ -4,7 +4,7 @@ import {NaviComponent} from './navi.component';
 
 @Component({
     selector: 'ss-navi-sub',
-    templateUrl: '../../local/templates/navi-sub.template.html'
+    templateUrl: 'local/templates/navi-sub.template.html'
 
 })
 
