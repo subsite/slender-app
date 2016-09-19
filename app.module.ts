@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 
 import { HttpModule, JsonpModule }  from '@angular/http';
-import { APP_BASE_HREF, HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { APP_BASE_HREF, PathLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { InMemoryWebApiModule }     from 'angular2-in-memory-web-api';
 
@@ -38,8 +38,9 @@ import { FooterComponent } from './footer/footer.component';
     providers: [
         Title,
         NaviService,
-        {provide: LocationStrategy, useClass: HashLocationStrategy},
-        { provide: APP_BASE_HREF, useValue: '/' }
+        { provide: APP_BASE_HREF, useValue: '/' },
+       {provide: LocationStrategy, useClass: PathLocationStrategy}
+        
     ],
     bootstrap: [AppComponent]
 })
