@@ -5,6 +5,7 @@ import {LoaderService} from './loader.service';
 import { CONF } from 'local/conf';
 
 declare let ga:Function;
+declare let foo:Function;
 
 @Component({
     template:`<div [innerHTML]="parsedMd"></div>`,
@@ -31,9 +32,16 @@ export class LoaderComponent implements OnInit {
             
             
             // send url to google analytics
-            if (CONF.gaDomains && CONF.gaDomains.indexOf(window.location.hostname) != -1) {
-                ga('send', 'pageview', location.href);
-                //console.log("ga send pageview: "+location.href);
+            if (CONF.gaTrackingId 
+                && CONF.gaDomains 
+                && CONF.gaDomains.indexOf(window.location.hostname) != -1) {
+
+                    foo();
+
+                    ga('create', CONF.gaTrackingId, 'auto'); 
+                    ga('set', 'page', location.href);
+                    ga('send', 'pageview');
+                    console.log("ga create:"+CONF.gaTrackingId+' send:'+location.pathname);
             }
             
 
