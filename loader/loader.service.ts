@@ -32,8 +32,6 @@ export class LoaderService {
 
         this.parent = this.navi[naviIdx[0]];
         this.child = this.parent.sub[naviIdx[1]];
-
-        console.log(window.location.pathname);
                
         var defaultUrl = window.location.pathname + '/local/content/pages/' + this.parent.page + '/' + this.child.page + '.md'; 
         // remove possible extra slashes
@@ -44,7 +42,7 @@ export class LoaderService {
             ? this.child.custom_url 
             : defaultUrl
 
-            console.log("getPageUrl( parent / child: "+ this.parent.page + '/' + this.child.page +") naviService: "); 
+           // console.log("getPageUrl( parent / child: "+ this.parent.page + '/' + this.child.page +") naviService: "); 
 
         // Get optional page header for overriden urls. Maybe move this to own method.
         if (this.child.custom_url && this.child.page_as_header) {
@@ -58,7 +56,7 @@ export class LoaderService {
     // Get markdownfile with http request
     getFile(httpUrl:string) {
         this.pageHeader = "";
-        console.log("getFile("+httpUrl+")");
+        //console.log("getFile("+httpUrl+")");
         return this.http.get(httpUrl)
             .map(res => this.pageHeader + res.text()) 
             .catch(this.handleError);
@@ -73,21 +71,20 @@ export class LoaderService {
     // Find array indexes of current page by navi object key
     private getNaviIdx(urlObj) {
         let naviIdx: number[] = [0,0];
-        console.log("getNaviIdx: " + JSON.stringify(urlObj));
+        //console.log("getNaviIdx: " + JSON.stringify(urlObj));
+        // Find parent index
         for (var i=0; i<this.navi.length; i++) {
             if (this.navi[i].page == urlObj.page1) {
                 naviIdx[0] = i;
-                //break;
             }
         }
+        // Find child index
         for (var i=0; i<this.navi[naviIdx[0]].sub.length; i++) {
             if (this.navi[naviIdx[0]].sub[i].page == urlObj.page2) {
                 naviIdx[1] = i;
-                 console.log("getNaviIdx child: " + i);
-                //break;
             }
         }
-        console.log("getNaviIdx returns: " + JSON.stringify(naviIdx));
+       // console.log("getNaviIdx returns: " + JSON.stringify(naviIdx));
         
         this.naviService.setNaviIdx(naviIdx);
 

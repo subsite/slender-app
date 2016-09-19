@@ -25,7 +25,7 @@ export class LoaderComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log("loader init");
+       // console.log("loader init");
 
         this.route.params.subscribe(urlParams => {
             
@@ -33,7 +33,7 @@ export class LoaderComponent implements OnInit {
             // send url to google analytics
             if (CONF.gaDomains && CONF.gaDomains.indexOf(window.location.hostname) != -1) {
                 ga('send', 'pageview', location.href);
-                console.log("ga send pageview: "+location.href);
+                //console.log("ga send pageview: "+location.href);
             }
             
 

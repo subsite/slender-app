@@ -21,7 +21,6 @@ export class NaviComponent implements OnInit {
     ngOnInit() {
 
         this.navi = this.naviService.navi;
-        this.linkRoot = this.naviService.linkRoot;
         this.curNaviIdx = this.naviService.curNaviIdx;
 
     }
