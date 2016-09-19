@@ -3,7 +3,7 @@ import { Http, Response, Headers, URLSearchParams, RequestOptions } from '@angul
 import { Observable } from 'rxjs/Observable';
 import {NaviService} from '../navi/navi.service';
 
-import { CONF } from 'local/conf';
+import { CONF } from '../../local/conf';
 
 
 declare var marked: any; // marked.js
@@ -67,7 +67,7 @@ export class LoaderService {
     }
 
     // Parse markdown file 
-    markUp(md:string) {
+    markUp(md: any) {
         return (marked(md));
     }
     

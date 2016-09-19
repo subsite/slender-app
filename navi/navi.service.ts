@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { CONF } from 'local/conf';
+import { CONF } from '../../local/conf';
 
 //import {TEST} from  'test';
 

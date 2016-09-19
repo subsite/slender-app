@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { CONF } from 'local/conf';
+import { CONF } from '../local/conf';
 
 
 

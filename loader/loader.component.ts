@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import {LoaderService} from './loader.service';
-import { CONF } from 'local/conf';
+import { CONF } from '../../local/conf';
 
 declare let ga:Function;
 
