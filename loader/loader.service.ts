@@ -33,7 +33,10 @@ export class LoaderService {
         this.parent = this.navi[naviIdx[0]];
         this.child = this.parent.sub[naviIdx[1]];
                
-        var defaultUrl = window.location.pathname + '/local/content/pages/' + this.parent.page + '/' + this.child.page + '.md'; 
+        //var defaultUrl = window.location.pathname + '/local/content/pages/' + this.parent.page + '/' + this.child.page + '.md'; 
+        var defaultUrl = '/local/content/pages/' + this.parent.page + '/' + this.child.page + '.md'; 
+        console.log(defaultUrl);
+
         // remove possible extra slashes
         defaultUrl = defaultUrl.replace(/(\/+)/g, '/');
         
@@ -56,7 +59,7 @@ export class LoaderService {
     // Get markdownfile with http request
     getFile(httpUrl:string) {
         this.pageHeader = "";
-        //console.log("getFile("+httpUrl+")");
+        console.log("getFile("+httpUrl+")");
         return this.http.get(httpUrl)
             .map(res => this.pageHeader + res.text()) 
             .catch(this.handleError);
