@@ -5,7 +5,6 @@ import {LoaderService} from './loader.service';
 import { CONF } from '../../local/conf';
 
 declare let ga:Function;
-declare let foo:Function;
 
 @Component({
     template:`<div [innerHTML]="parsedMd"></div>`,
