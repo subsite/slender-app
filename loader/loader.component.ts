@@ -43,7 +43,6 @@ export class LoaderComponent implements OnInit {
                 && CONF.gaDomains 
                 && CONF.gaDomains.indexOf(window.location.hostname) != -1) {
 
-                    
                     ga('set', 'page', location.pathname);
                     ga('send', 'pageview');
                     console.log('ga send:'+location.pathname);
