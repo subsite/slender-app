@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+
 import { HttpModule, JsonpModule }  from '@angular/http';
 import { APP_BASE_HREF, HashLocationStrategy, LocationStrategy } from '@angular/common';
 
@@ -22,7 +22,6 @@ import { FooterComponent } from './footer/footer.component';
 @NgModule({
     imports: [
         BrowserModule,
-        FormsModule,
         HttpModule,
         JsonpModule,
         routing
