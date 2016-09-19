@@ -36,8 +36,6 @@ export class LoaderComponent implements OnInit {
                 && CONF.gaDomains 
                 && CONF.gaDomains.indexOf(window.location.hostname) != -1) {
 
-                    foo();
-
                     ga('create', CONF.gaTrackingId, 'auto'); 
                     ga('set', 'page', location.href);
                     ga('send', 'pageview');
