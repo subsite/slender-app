@@ -13,7 +13,11 @@ var fs = require("fs");
 var dst = fs.readFileSync('./package.json');
 var src = fs.readFileSync('./app/build-conf/package.json', 'utf-8');
 
-var other_files = [ 'systemjs.config.js', 'tsconfig.json', 'typings.json'];
+var other_files = [ 
+    'systemjs.config.js', 
+    'tsconfig.json', 
+    'typings.json'
+];
 
 // Merge package.json
 var result = mergeJSON.merge(JSON.parse(dst), JSON.parse(src)) ;
