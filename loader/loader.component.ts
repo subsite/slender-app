@@ -27,20 +27,17 @@ export class LoaderComponent implements OnInit {
     ngOnInit() {
        console.log("loader init");
 
-       if (CONF.gaTrackingId) {
+       if (CONF.gaTrackingId && window.location.hostname != 'localhost') {
            ga('create', CONF.gaTrackingId, 'auto'); 
             console.log("ga create:"+CONF.gaTrackingId);
        }
        
 
-
         this.route.params.subscribe(urlParams => {
             
             
             // send url to google analytics
-            if (CONF.gaTrackingId 
-                && CONF.gaDomains 
-                && CONF.gaDomains.indexOf(window.location.hostname) != -1) {
+            if (CONF.gaTrackingId && window.location.hostname != 'localhost') {
 
                     ga('set', 'page', location.pathname);
                     ga('send', 'pageview');
