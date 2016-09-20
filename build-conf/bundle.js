@@ -4,7 +4,7 @@ const Builder = require("systemjs-builder");
 
 var outpath = 'local/assets/js/';
 
-// SystemJS build options, see https://github.com/angular/angular/issues/9359
+// SystemJS build options
 var options = {
     normalize: true,
     runtime: false,
