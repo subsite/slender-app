@@ -2,7 +2,10 @@
 
 const Builder = require("systemjs-builder");
 var compressor = require('node-minify');
-// SystemJS build options.
+
+var outpath = 'local/assets/js/';
+
+// SystemJS build options, see https://github.com/angular/angular/issues/9359
 var options = {
     normalize: true,
     runtime: false,
@@ -25,20 +28,21 @@ builder.config({
     }
 });
 
-console.log("Bundling rxjs/* => node_modules/.tmp/");
+console.log("Bundling rxjs/* => "+outpath);
 
 builder
-    .bundle('rxjs', 'node_modules/.tmp/Rx.js', options)
+    .bundle('rxjs', outpath+'Rx.js', options)
     .then(function() {
         console.log("Minifying...")
         new compressor.minify({
             type: 'uglifyjs',
-            fileIn: 'node_modules/.tmp/Rx.js',
-            fileOut: 'node_modules/.tmp/Rx.min.js',
+            fileIn: outpath+'Rx.js',
+            fileOut: outpath+'Rx.min.js',
             callback: function(err, min){
                 console.log("Bundles Rx.js and Rx.min.js complete"); 
-                console.log(err);
-                //console.log(min); 
+                if (err) {
+                    console.log(err);
+                }
             }
         });
     });
