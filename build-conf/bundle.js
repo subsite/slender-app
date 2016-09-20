@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const Builder = require("systemjs-builder");
-var compressor = require('node-minify');
 
 var outpath = 'local/assets/js/';
 
@@ -11,7 +10,7 @@ var options = {
     runtime: false,
     sourceMaps: true,
     sourceMapContents: true,
-    minify: false,
+    minify: true,
     mangle: false
 };
 var builder = new Builder('./');
@@ -30,22 +29,7 @@ builder.config({
 
 console.log("Bundling rxjs/* => "+outpath);
 
-builder
-    .bundle('rxjs', outpath+'Rx.js', options)
-    .then(function() {
-        console.log("Minifying...")
-        new compressor.minify({
-            type: 'uglifyjs',
-            fileIn: outpath+'Rx.js',
-            fileOut: outpath+'Rx.min.js',
-            callback: function(err, min){
-                console.log("Bundles Rx.js and Rx.min.js complete"); 
-                if (err) {
-                    console.log(err);
-                }
-            }
-        });
-    });
+builder.bundle('rxjs', outpath+'Rx.min.js', options);
 
 
 
