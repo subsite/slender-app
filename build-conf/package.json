@@ -6,8 +6,8 @@
     "lite": "lite-server",
     "typings": "typings",
     "postinstall": "typings install && npm run bundle",
-    "build-conf": "./app/build-conf/build-conf.js",
-    "bundle": "./app/build-conf/bundle.js"
+    "build-conf": "./app/build-conf/build-con.js",
+    "bundle": "./app/build-conf/bundle.js" 
   },
 
   "dependencies": {
