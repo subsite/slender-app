@@ -25,7 +25,6 @@ export class LoaderComponent implements OnInit {
     }
 
     ngOnInit() {
-       console.log("loader init");
 
        if (CONF.gaTrackingId && window.location.hostname != 'localhost') {
            ga('create', CONF.gaTrackingId, 'auto'); 
